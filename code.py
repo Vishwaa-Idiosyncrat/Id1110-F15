@@ -19,4 +19,4 @@ for para in data_paragraphs:
     data_text += para.text
 
 data_text = data_text.lower()
-print(data_paragraphs)
+print(data_text)
