@@ -7,6 +7,7 @@ import urllib.request
 import re
 
 
+
 get_link = urllib.request.urlopen('https://en.wikipedia.org/wiki/Data_science')
 get_link = get_link.read()
 
@@ -18,5 +19,4 @@ for para in data_paragraphs:
     data_text += para.text
 
 data_text = data_text.lower()
-
-print(data_text)
+print(data_paragraphs)
