@@ -20,8 +20,13 @@ data_text = data_text.lower()
 
 data_text = re.sub(r'\[[0-9]*\]', ' ',data_text)
 data_text = re.sub(r'\s+',' ',data_text)
-print(data_text)
+#print(data_text)
 sen = nltk.sent_tokenize(data_text)
 words = nltk.word_tokenize(data_text)
-print(sen)
+#print(sen)
+#print(words)
+wnlem = nltk.stem.WordNetLemmatizer()
+def lemmatization(tokenized):
+    return [wnlem.lemmatize(token) for token in tokenized]
+pr = dict((ord(punctuation),None) for punctuation in string.punctuation)
 
