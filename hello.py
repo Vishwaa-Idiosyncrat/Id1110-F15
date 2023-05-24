@@ -29,4 +29,7 @@ wnlem = nltk.stem.WordNetLemmatizer()
 def lemmatization(tokenized):
     return [wnlem.lemmatize(token) for token in tokenized]
 pr = dict((ord(punctuation),None) for punctuation in string.punctuation)
-
+def processed_text(document):
+    return lemmatization(nltk.word_tokenize(document.lower().translate(pr)))
+inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup")
+outputs = ["hey",]
