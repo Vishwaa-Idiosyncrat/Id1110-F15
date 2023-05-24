@@ -1,5 +1,4 @@
 import nltk
-nltk.download('punkt')
 import numpy as np
 import random
 import string
@@ -38,7 +37,7 @@ outputs = ["hey","Good Morning", "Good Afternoon","Good Evening"," It’s nice t
 
 def greeting_response(greeting):
     for token in greeting.split():
-        if token.lower in inputs:
+        if token.lower() in inputs:
             return random.choice(outputs)
         
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -57,7 +56,7 @@ def generate_response(user_input):
     matched_vector.sort()
     vector_matched = matched_vector[-2]
 
-    if vector_matched == 0:
+    if vector_matched == 0.0:
         bot_response = bot_response +"I am sorry I did not understand"
         return bot_response
     else:
@@ -66,21 +65,21 @@ def generate_response(user_input):
     
 start = True
 print("Hello F-15, I am your personal assistant")
-print("Question me")
+print("Question me ")
 while start == True:
     human = input()
     human = human.lower()
     if human != 'bye':
-        if human == 'thanks' or 'thank you':
+        if human == 'thanks' or human == 'thank you':
             start = False
             print("Most welcome from our team")
         else:
             if greeting_response(human) != None:
-                print("F-15 Bot"+ greeting_response(human))
+                print("F-15 Bot: "+ greeting_response(human))
             else:
-                print("F-15 Bot",end ='')
+                print("F-15 Bot: ",end ='')
                 print(generate_response(human))
                 sen.remove(human)
     else:
-        start == False
+        start = False
         print("F-15 Bot wishes you a All The Best")
