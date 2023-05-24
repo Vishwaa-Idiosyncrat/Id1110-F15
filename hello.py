@@ -24,3 +24,4 @@ print(data_text)
 sen = nltk.sent_tokenize(data_text)
 words = nltk.word_tokenize(data_text)
 print(sen)
+
