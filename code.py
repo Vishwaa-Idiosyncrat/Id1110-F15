@@ -5,18 +5,17 @@ import string
 import bs4 as bs
 import urllib.request
 import re
-
-
-
-get_link = urllib.request.urlopen('https://en.wikipedia.org/wiki/Data_science')
-get_link = get_link.read()
-
-data = bs.BeautifulSoup(get_link, 'lxml')
+link = urllib.request.urlopen('https://en.wikipedia.org/wiki/Data_science')
+link = link.read()
+data = bs.BeautifulSoup(link,'lxml')
+print(data)
 data_paragraphs = data.find_all('p')
-
 data_text = ''
 for para in data_paragraphs:
     data_text += para.text
-
-data_text = data_text.lower()
 print(data_text)
+data_text = data_text.lower()
+data_text = re.sub(r'\[[0-9]*\]',' ',data_text)
+data_text = re.sub(r'\s+',' ',data_text)
+print(data_text)
+
