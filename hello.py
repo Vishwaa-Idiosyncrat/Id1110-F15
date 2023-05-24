@@ -63,3 +63,24 @@ def generate_response(user_input):
     else:
         bot_response = bot_response + sen[similar_sentence_numbers]
         return bot_response
+    
+start = True
+print("Hello F-15, I am your personal assistant")
+print("Question me")
+while start == True:
+    human = input()
+    human = human.lower()
+    if human != 'bye':
+        if human == 'thanks' or 'thank you':
+            start = False
+            print("Most welcome from our team")
+        else:
+            if greeting_response(human) != None:
+                print("F-15 Bot"+ greeting_response(human))
+            else:
+                print("F-15 Bot",end ='')
+                print(generate_response(human))
+                sen.remove(human)
+    else:
+        start == False
+        print("F-15 Bot wishes you a All The Best")
