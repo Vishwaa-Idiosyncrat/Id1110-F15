@@ -5,7 +5,7 @@ while True:
     url = requests.get("https://en.wikipedia.org/wiki/Special:Random")
     soup = BeautifulSoup(url.content, "html.parser")
     title = soup.find(class_="firstHeading").text
-    print(f"{title} \nDo you want to view it? (Y/N)")
+    print(f"{title} \nDo you want to question me in it? (Y/N)")
     ans = input("").lower()
     if ans == "y":
         url = "https://en.wikipedia.org/wiki/%s" % title
