@@ -7,14 +7,23 @@ import urllib.request
 import re
 from bs4 import BeautifulSoup
 
+inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup")
+outputs = ["hey","Good Morning", "Good Afternoon","Good Evening"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
+
+def greeting_response(greeting):
+    for token in greeting.split():
+        if token.lower() in inputs:
+            return random.choice(outputs)
+
+start1=True
+print("Hello F-15, I am your personal assistant")
+
+
 get_link = urllib.request.urlopen("https://en.wikipedia.org/wiki/Special:Random")
 get_link = get_link.read()
 soup = BeautifulSoup(get_link, "html.parser")
 title = soup.find(class_="firstHeading").text
 print(title)
-
-
-
 
 data = bs.BeautifulSoup(get_link, 'lxml')
 data_paragraphs = data.find_all('p')
@@ -40,13 +49,6 @@ pr = dict((ord(punctuation),None) for punctuation in string.punctuation)
 def processed_text(document):
     return lemmatization(nltk.word_tokenize(document.lower().translate(pr)))
 
-inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup")
-outputs = ["hey","Good Morning", "Good Afternoon","Good Evening"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
-
-def greeting_response(greeting):
-    for token in greeting.split():
-        if token.lower() in inputs:
-            return random.choice(outputs)
         
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -59,7 +61,6 @@ def generate_response(user_input):
     word_vectors = word_vectorizer.fit_transform(sen)
     similar_vector_values = cosine_similarity(word_vectors[-1],word_vectors)
     similar_sentence_numbers = similar_vector_values.argsort()[0][-2]
-
     matched_vector = similar_vector_values.flatten()
     matched_vector.sort()
     vector_matched = matched_vector[-2]
@@ -72,8 +73,7 @@ def generate_response(user_input):
         return bot_response
     
 start = True
-print("Hello F-15, I am your personal assistant")
-print("Question me on {title} ")
+print(f"Question me on {title} ")
 while start == True:
     human = input()
     human = human.lower()
