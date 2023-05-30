@@ -7,6 +7,7 @@ import urllib.request
 import re
 from bs4 import BeautifulSoup
 
+# List of possible inputs and corresponding outputs for greetings
 inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup")
 outputs = ["hey","Good Morning"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
 
@@ -18,7 +19,7 @@ def greeting_response(greeting):
 start1=True
 print("Hello F-15, I am your personal assistant")
 
-
+# Get a random Wikipedia article
 get_link = urllib.request.urlopen("https://en.wikipedia.org/wiki/Special:Random")
 get_link = get_link.read()
 soup = BeautifulSoup(get_link, "html.parser")
@@ -37,7 +38,9 @@ data_text = data_text.lower()
 data_text = re.sub(r'\[[0-9]*\]', ' ',data_text)
 data_text = re.sub(r'\s+',' ',data_text)
 #print(data_text)
+# Tokenize the text into sentences
 sen = nltk.sent_tokenize(data_text)
+# Tokenize the text into words
 words = nltk.word_tokenize(data_text)
 #print(sen)
 #print(words)
@@ -55,12 +58,17 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 def generate_response(user_input):
     bot_response = ''
+    # Add user input to the list of sentences
     sen.append(user_input)
-
+    # Create word vectors using TF-IDF vectorization
     word_vectorizer = TfidfVectorizer(tokenizer=processed_text, stop_words='english')
     word_vectors = word_vectorizer.fit_transform(sen)
+    # Calculate cosine similarity between the user input vector and all other vectors
     similar_vector_values = cosine_similarity(word_vectors[-1],word_vectors)
+    # Get the index of the most similar sentence
     similar_sentence_numbers = similar_vector_values.argsort()[0][-2]
+
+    
     matched_vector = similar_vector_values.flatten()
     matched_vector.sort()
     vector_matched = matched_vector[-2]
