@@ -11,10 +11,6 @@ from bs4 import BeautifulSoup
 inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup")
 outputs = ["hey","Good Morning"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
 
-def greeting_response(greeting):
-    for token in greeting.split():
-        if token.lower() in inputs:
-            return random.choice(outputs)
 
 start = True
 print("Hello F-15, I am your personal assistant")
@@ -79,7 +75,12 @@ def generate_response(user_input):
     else:
         bot_response = bot_response + sen[similar_sentence_numbers]
         return bot_response
-    
+
+def greeting_response(greeting):
+    for token in greeting.split():
+        if token.lower() in inputs:
+            return random.choice(outputs)
+
 start1 = True
 print(f"Question me on {title} ")
 while start == True:
