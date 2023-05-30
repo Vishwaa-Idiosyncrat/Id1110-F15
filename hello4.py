@@ -8,7 +8,7 @@ import re
 from bs4 import BeautifulSoup
 
 inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup")
-outputs = ["hey","Good Morning", "Good Afternoon","Good Evening"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
+outputs = ["hey","Good Morning"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
 
 def greeting_response(greeting):
     for token in greeting.split():
