@@ -16,7 +16,7 @@ def greeting_response(greeting):
         if token.lower() in inputs:
             return random.choice(outputs)
 
-start1=True
+start = True
 print("Hello F-15, I am your personal assistant")
 
 # Get a random Wikipedia article
@@ -68,7 +68,7 @@ def generate_response(user_input):
     # Get the index of the most similar sentence
     similar_sentence_numbers = similar_vector_values.argsort()[0][-2]
 
-    
+
     matched_vector = similar_vector_values.flatten()
     matched_vector.sort()
     vector_matched = matched_vector[-2]
@@ -80,7 +80,7 @@ def generate_response(user_input):
         bot_response = bot_response + sen[similar_sentence_numbers]
         return bot_response
     
-start = True
+start1 = True
 print(f"Question me on {title} ")
 while start == True:
     human = input()
