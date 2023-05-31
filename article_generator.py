@@ -3,7 +3,7 @@ import bs4 as bs
 import webbrowser
 while True:
     url = requests.get("https://en.wikipedia.org/wiki/Special:Random")
-    soup = BeautifulSoup(url.content, "html.parser")
+    soup = bs.BeautifulSoup(url.content, "html.parser")
     title = soup.find(class_="firstHeading").text
     print(f"{title} \nDo you want to question me in it? (Y/N)")
     ans = input("").lower()
