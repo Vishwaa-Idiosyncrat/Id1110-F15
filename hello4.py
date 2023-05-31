@@ -38,14 +38,12 @@ data_text = data_text.lower()
 data_text = re.sub(r'\[[0-9]*\]', ' ',data_text)
 # Remove extra whitespace by substituting multiple consecutive whitespace characters with a single space
 data_text = re.sub(r'\s+',' ',data_text)
-#print(data_text)
 
 # Tokenize the text into sentences
 sen = nltk.sent_tokenize(data_text)
 # Tokenize the text into words
 words = nltk.word_tokenize(data_text)
-#print(sen)
-#print(words)
+
 wnlem = nltk.stem.WordNetLemmatizer()
 def lemmatization(tokenized):
     return [wnlem.lemmatize(token) for token in tokenized]
