@@ -58,8 +58,9 @@ def processed_text(document):
     # Convert the document to lowercase, remove punctuation, tokenize, and lemmatize
     return lemmatization(nltk.word_tokenize(document.lower().translate(pr)))
 
-        
+# Import the TfidfVectorizer class from scikit-learn for text feature extraction       
 from sklearn.feature_extraction.text import TfidfVectorizer
+# Import the cosine_similarity function from scikit-learn for calculating cosine similarity
 from sklearn.metrics.pairwise import cosine_similarity
 
 def generate_response(user_input):
