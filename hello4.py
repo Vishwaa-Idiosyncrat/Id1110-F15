@@ -7,7 +7,7 @@ import urllib.request
 import re
 from bs4 import BeautifulSoup
 
-# List of possible inputs and corresponding outputs for greetings
+#    List of possible inputs and corresponding outputs for greetings
 inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup")
 outputs = ["hey","Good Morning"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
 
