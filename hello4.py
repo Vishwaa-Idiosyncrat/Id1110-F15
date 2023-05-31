@@ -44,12 +44,18 @@ sen = nltk.sent_tokenize(data_text)
 # Tokenize the text into words
 words = nltk.word_tokenize(data_text)
 
+# Create an instance of WordNetLemmatizer for lemmatization
 wnlem = nltk.stem.WordNetLemmatizer()
+# Define a function for lemmatization
 def lemmatization(tokenized):
+    # Lemmatize each token using the WordNetLemmatizer instance
     return [wnlem.lemmatize(token) for token in tokenized]
 
+# Create a translation table to remove punctuation marks
 pr = dict((ord(punctuation),None) for punctuation in string.punctuation)
+# Define a function for processing text
 def processed_text(document):
+    # Convert the document to lowercase, remove punctuation, tokenize, and lemmatize
     return lemmatization(nltk.word_tokenize(document.lower().translate(pr)))
 
         
