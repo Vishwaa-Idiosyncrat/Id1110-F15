@@ -65,11 +65,11 @@ def generate_response(user_input):
     word_vectorizer = TfidfVectorizer(tokenizer=processed_text, stop_words='english')
     word_vectors = word_vectorizer.fit_transform(sen)
     similar_vector_values = cosine_similarity(word_vectors[-1],word_vectors)
-    similar_sentence_numbers = similar_vector_values.argsort()[0][-2]
+    similar_sentence_numbers = similar_vector_values.argsort()[0][-1]
 
     matched_vector = similar_vector_values.flatten()
     matched_vector.sort()
-    vector_matched = matched_vector[-2]
+    vector_matched = matched_vector[-1]
 
     if vector_matched == 0.0:
         bot_response = bot_response +"I am sorry I did not understand"
