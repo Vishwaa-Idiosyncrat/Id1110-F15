@@ -23,7 +23,7 @@ soup = BeautifulSoup(get_link, "html.parser")
 title = soup.find(class_="firstHeading").text
 print(title)
 
-# Seperating the whole content from data to individual paragraphs.
+#Seperating the whole content from data to individual paragraphs.
 data = bs.BeautifulSoup(get_link, 'lxml')
 data_paragraphs = data.find_all('p')
 
