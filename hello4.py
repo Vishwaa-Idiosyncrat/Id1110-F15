@@ -19,21 +19,27 @@ print("Hello F-15, I am your personal assistant")
 get_link = urllib.request.urlopen("https://en.wikipedia.org/wiki/Special:Random")
 get_link = get_link.read()
 soup = BeautifulSoup(get_link, "html.parser")
+    # This soup object represents the parsed HTML content of the random Wikipedia article obtained from the URL.
 title = soup.find(class_="firstHeading").text
 print(title)
 
+# Seperating the whole content from data to individual paragraphs.
 data = bs.BeautifulSoup(get_link, 'lxml')
 data_paragraphs = data.find_all('p')
 
+# Creating a empty string named data_text and adding each paragraphs from data_paragraphs to it.
 data_text = ''
 for para in data_paragraphs:
     data_text += para.text
 
 data_text = data_text.lower()
 
+# Remove patterns enclosed in square brackets followed by digits and replace with a space
 data_text = re.sub(r'\[[0-9]*\]', ' ',data_text)
+# Remove extra whitespace by substituting multiple consecutive whitespace characters with a single space
 data_text = re.sub(r'\s+',' ',data_text)
 #print(data_text)
+
 # Tokenize the text into sentences
 sen = nltk.sent_tokenize(data_text)
 # Tokenize the text into words
