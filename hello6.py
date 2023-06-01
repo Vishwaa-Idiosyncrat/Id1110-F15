@@ -7,13 +7,12 @@ import urllib.request
 import re
 
 # List of possible inputs and corresponding outputs for greetings
-inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup")
+inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup","how do you do?")
 outputs = ["hey","Good Morning"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
 
 
 start = True
 print("Hello F-15, I am your personal assistant")
-
 # Get a random Wikipedia article
 get_link = urllib.request.urlopen("https://en.wikipedia.org/wiki/Special:Random")
 get_link = get_link.read()
