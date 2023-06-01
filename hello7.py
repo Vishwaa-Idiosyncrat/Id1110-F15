@@ -7,7 +7,7 @@ import bs4 as bs
 import urllib.request
 import re
 
-def display_response(response):
+def display_response (response):
     textbox.insert(tk.END, "F-15 Bot: " + response + "\n")
     textbox.see(tk.END)
 
