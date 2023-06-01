@@ -6,70 +6,78 @@ import bs4 as bs
 import urllib.request
 import re
 
-
+# List of possible inputs and corresponding outputs for greetings
 inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup")
-outputs = ["hey","Good Morning", "Good Afternoon","Good Evening"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
-
-def greeting_response(greeting):
-    for token in greeting.split():
-        if token.lower() in inputs:
-            return random.choice(outputs)
-
-while True:
-    get_link = urllib.request.urlopen("https://en.wikipedia.org/wiki/Special:Random")
-    soup = bs.BeautifulSoup(get_link, "html.parser")
-    title = soup.find(class_="firstHeading").text
-    print(f"{title} \nDo you want to question me in it? (Y/N)")
-    ans = input("").lower()
-    if ans == "y":
-        get_link = get_link.read()
-        break
-    elif ans == "n":
-        print("Try again!")
-        continue
+outputs = ["hey","Good Morning"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
 
 
+start = True
+print("Hello F-15, I am your personal assistant")
+
+# Get a random Wikipedia article
+get_link = urllib.request.urlopen("https://en.wikipedia.org/wiki/Special:Random")
+get_link = get_link.read()
+soup = bs.BeautifulSoup(get_link, "html.parser")
+    # This soup object represents the parsed HTML content of the random Wikipedia article obtained from the URL.
+title = soup.find(class_="firstHeading").text
+print(title)
+
+# Seperating the whole content from data to individual paragraphs.
 data = bs.BeautifulSoup(get_link, 'lxml')
 data_paragraphs = data.find_all('p')
 
+# Creating a empty string named data_text and adding each paragraphs from data_paragraphs to it.
 data_text = ''
 for para in data_paragraphs:
     data_text += para.text
 
 data_text = data_text.lower()
 
+# Remove patterns enclosed in square brackets followed by digits and replace with a space
 data_text = re.sub(r'\[[0-9]*\]', ' ',data_text)
+# Remove extra whitespace by substituting multiple consecutive whitespace characters with a single space
 data_text = re.sub(r'\s+',' ',data_text)
-#print(data_text)
+
+# Tokenize the text into sentences
 sen = nltk.sent_tokenize(data_text)
+# Tokenize the text into words
 words = nltk.word_tokenize(data_text)
-#print(sen)
-#print(words)
+
+# Create an instance of WordNetLemmatizer for lemmatization
 wnlem = nltk.stem.WordNetLemmatizer()
+# Define a function for lemmatization
 def lemmatization(tokenized):
+    # Lemmatize each token using the WordNetLemmatizer instance
     return [wnlem.lemmatize(token) for token in tokenized]
 
+# Create a translation table to remove punctuation marks
 pr = dict((ord(punctuation),None) for punctuation in string.punctuation)
+# Define a function for processing text
 def processed_text(document):
+    # Convert the document to lowercase, remove punctuation, tokenize, and lemmatize
     return lemmatization(nltk.word_tokenize(document.lower().translate(pr)))
 
-
-        
+# Import the TfidfVectorizer class from scikit-learn for text feature extraction       
 from sklearn.feature_extraction.text import TfidfVectorizer
+# Import the cosine_similarity function from scikit-learn for calculating cosine similarity
 from sklearn.metrics.pairwise import cosine_similarity
 
 def generate_response(user_input):
     bot_response = ''
+    # Add user input to the list of sentences
     sen.append(user_input)
-
+    # Create word vectors using TF-IDF vectorization
     word_vectorizer = TfidfVectorizer(tokenizer=processed_text, stop_words='english')
     word_vectors = word_vectorizer.fit_transform(sen)
+    # Calculate cosine similarity between the user input vector and all other vectors
     similar_vector_values = cosine_similarity(word_vectors[-1],word_vectors)
-    similar_sentence_numbers = similar_vector_values.argsort()[0][-1]
+    # Get the index of the most similar sentence
+    similar_sentence_numbers = similar_vector_values.argsort()[0][-2]
+
 
     matched_vector = similar_vector_values.flatten()
     matched_vector.sort()
-    vector_matched = matched_vector[-1]
+    vector_matched = matched_vector[-2]
 
     if vector_matched == 0.0:
         bot_response = bot_response +"I am sorry I did not understand"
@@ -77,9 +85,14 @@ def generate_response(user_input):
     else:
         bot_response = bot_response + sen[similar_sentence_numbers]
         return bot_response
-    
-start = True
 
+def greeting_response(greeting):
+    for token in greeting.split():
+        if token.lower() in inputs:
+            return random.choice(outputs)
+
+start1 = True
+print(f"Question me on {title} ")
 while start == True:
     human = input()
     human = human.lower()
@@ -94,9 +107,7 @@ while start == True:
                 print("F-15 Bot: ",end ='')
                 print(generate_response(human))
                 sen.remove(human)
+                # This removes user input from the list of sentences
     else:
         start = False
         print("F-15 Bot wishes you a All The Best")
-
-print("Hello F-15, I am your personal assistant")
-print(f"Question me on {title} ")
