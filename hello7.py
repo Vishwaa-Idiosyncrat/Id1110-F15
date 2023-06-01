@@ -7,11 +7,14 @@ import bs4 as bs
 import urllib.request
 import re
 
+# Function to display the bot's response in the chat window
 def display_response(response):
+    # Insert the bot's response at the end of the text in the textbox widget
     textbox.insert(tk.END, "F-15 Bot: " + response + "\n")
+    # Scroll the textbox widget to the end, making the latest message visible
     textbox.see(tk.END)
 
-def toggle_theme():
+def change_theme():
     # Toggle between dark and light mode
     current_theme = window.tk.call("ttk::style", "theme", "use")
     if current_theme == "clam":
@@ -27,7 +30,7 @@ window.geometry("800x1000")
 # Create a menu bar
 menubar = tk.Menu(window)
 theme_menu = tk.Menu(menubar, tearoff=0)
-theme_menu.add_command(label="Toggle Theme", command=toggle_theme)
+theme_menu.add_command(label="Toggle Theme", command=change_theme)
 menubar.add_cascade(label="Theme", menu=theme_menu)
 window.config(menu=menubar)
 
