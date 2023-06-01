@@ -145,6 +145,7 @@ def greeting_response(greeting):
             return random.choice(outputs)
         
 start1 = True
+
 # Displays the following sentence after the wikipedia article has been chosen
 display_response(f"Question me on {title} ")
 
