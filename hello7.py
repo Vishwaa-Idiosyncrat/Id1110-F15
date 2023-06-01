@@ -17,9 +17,12 @@ def display_response(response):
 def change_theme():
     # Toggle between dark and light mode
     current_theme = window.tk.call("ttk::style", "theme", "use")
+    # Check the current theme and switch to the opposite theme
     if current_theme == "clam":
+        # Switch to the 'alt' theme
         window.tk.call("ttk::style", "theme", "alt")
     else:
+        # Switch to the 'clam' theme
         window.tk.call("ttk::style", "theme", "clam")
 
 # Create a Tkinter window
@@ -29,9 +32,13 @@ window.geometry("800x1000")
 
 # Create a menu bar
 menubar = tk.Menu(window)
+# Create a submenu for the theme options
 theme_menu = tk.Menu(menubar, tearoff=0)
+# Add a menu item for toggling the theme
 theme_menu.add_command(label="Toggle Theme", command=change_theme)
+# Add the theme submenu to the menu bar
 menubar.add_cascade(label="Theme", menu=theme_menu)
+# Configure the window to use the menu bar
 window.config(menu=menubar)
 
 # Create a text box for displaying the conversation
@@ -50,7 +57,7 @@ outputs = ["hey","Good Morning"," It’s nice to meet you","Pleased to meet you"
 
 
 start = True
-print("Hello F-15, I am your personal assistant")
+
 # Get a random Wikipedia article
 get_link = urllib.request.urlopen("https://en.wikipedia.org/wiki/Special:Random")
 get_link = get_link.read()
