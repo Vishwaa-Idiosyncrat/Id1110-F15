@@ -28,7 +28,7 @@ def change_theme():
 # Create a Tkinter window
 window = tk.Tk()
 window.title("F-15 Bot")
-window.geometry("800x1000")
+window.geometry("800x800")
 
 # Create a menu bar
 menubar = tk.Menu(window)
@@ -64,6 +64,7 @@ get_link = get_link.read()
 soup = bs.BeautifulSoup(get_link, "html.parser")
     # This soup object represents the parsed HTML content of the random Wikipedia article obtained from the URL.
 title = soup.find(class_="firstHeading").text
+display_response("Hello, F-15")
 display_response(f"Wikipedia Article is on {title}")
 
 # Seperating the whole content from data to individual paragraphs.
@@ -136,25 +137,35 @@ def generate_response(user_input):
         bot_response = bot_response + sen[similar_sentence_numbers]
         return bot_response
 
+#Function to greet the user from pre defined list of greetings
 def greeting_response(greeting):
     for token in greeting.split():
         if token.lower() in inputs:
+            #If user's input is in the predefined list of greeting inputs the bot returns random greetings from the list of predefined oututs
             return random.choice(outputs)
+        
 start1 = True
+# Displays the following sentence after the wikipedia article has been chosen
 display_response(f"Question me on {title} ")
 
+# Function to display the bot's response in the chat window
 def display_response(response):
+    # Insert the bot's response at the end of the text in the textbox widget
     textbox.insert(tk.END, "F-15 Bot: " + response + "\n")
+    # Scroll the textbox widget to the end, making the latest message visible
     textbox.see(tk.END)
 
-def send_message():
+def give_command():
     # Get user input from the entry field
     user_input = entry.get().lower()
+    #once the Command button is clicked the input is cleared from the input box
     entry.delete(0, tk.END)
 
+    #Displays the end response message
     if user_input != 'bye':
         if user_input == 'thanks' or user_input == 'thank you':
             display_response("Most welcome from our team")
+            #If the end response is not as mentioned above it is either greeting response or it is treated as generate response
         else:
             greeting = greeting_response(user_input)
             if greeting:
@@ -165,11 +176,12 @@ def send_message():
                 sen.remove(user_input)
     else:
         display_response("F-15 Bot wishes you all the best")
-        window.after(1000, window.destroy)  # Close the window after 1 seconds
+        # Close the window after 2 seconds
+        window.after(2000, window.destroy)  
 
 # Create a button for sending the message
-send_button = tk.Button(window, text="Send", command=send_message)
-send_button.pack(pady=10)
+command_button = tk.Button(window, text="Command", command=give_command)
+command_button.pack(pady=10)
 
 # Start the Tkinter event loop
 window.mainloop()
