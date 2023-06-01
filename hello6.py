@@ -73,12 +73,16 @@ def generate_response(user_input):
     # Get the index of the most similar sentence
     similar_sentence_numbers = similar_vector_values.argsort()[0][-2]
 
-
+    # Flatten the similarity scores array into a 1D array
     matched_vector = similar_vector_values.flatten()
+    # Sort the similarity scores in ascending order
     matched_vector.sort()
+    # Get the second-to-last element from the sorted array, representing the similarity score of the second most similar sentence
     vector_matched = matched_vector[-2]
-
+    
+    # Check if the similarity score is 0.0, indicating no meaningful match
     if vector_matched == 0.0:
+        # Append the "I am sorry I did not understand" message to the bot response
         bot_response = bot_response +"I am sorry I did not understand"
         return bot_response
     else:
