@@ -9,6 +9,13 @@ import gradio as gr
 # List of possible inputs and corresponding outputs for greetings
 inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup","how do you do?")
 outputs = ["hey","Good Morning"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
+def process_text(input_text):
+    pass
+input_textbox=gr.inputs.Textbox()
+output_textbox=gr.outputs.Textbox()
+
+interface=gr.Interface(fn=process_text,inputs=input_textbox,outputs=output_textbox,title="F-15 assistant")
+
 
 
 start = True
@@ -90,6 +97,8 @@ def generate_response(user_input):
     else:
         bot_response = bot_response + sen[similar_sentence_numbers]
         return bot_response
+
+interface.launch(share=True)
 
 def greeting_response(greeting):
     for token in greeting.split():
