@@ -92,13 +92,18 @@ def generate_response(user_input):
         bot_response = bot_response + sen[similar_sentence_numbers]
         return bot_response
 
-def process_text(input_text):
-    output_text=generate_response(user_input)
+def process_text(user_input):
+    bot_response=generate_response(user_input)
+    output_text = bot_response
+    if greeting_response(human) != None:
+        print("F-15 Bot: " + greeting_response(human))
+
     return output_text
 input_textbox=gr.inputs.Textbox()
-output_textbox=gr.outputs.Textbox()
 
+output_textbox=gr.outputs.Textbox()
 interface=gr.Interface(fn=process_text,inputs=input_textbox,outputs=output_textbox,title="F-15 assistant")
+
 interface.launch(share=True)
 
 def greeting_response(greeting):
@@ -106,7 +111,7 @@ def greeting_response(greeting):
         if token.lower() in inputs:
             return random.choice(outputs)
 
-start1 = True
+# start1=True
 # print(f"Question me on {title} ")
 while start == True:
     human = input()
