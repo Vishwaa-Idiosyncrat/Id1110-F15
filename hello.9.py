@@ -10,7 +10,7 @@ import gradio as gr
 inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup","how do you do?")
 outputs = ["hey","Good Morning"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
 def process_text(input_text):
-    output_text=outputs
+    output_text=generate_response
     return output_text
 input_textbox=gr.inputs.Textbox()
 output_textbox=gr.outputs.Textbox()
