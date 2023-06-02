@@ -10,7 +10,8 @@ import gradio as gr
 inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup","how do you do?")
 outputs = ["hey","Good Morning"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
 def process_text(input_text):
-    pass
+    output_text=outputs
+    return output_text
 input_textbox=gr.inputs.Textbox()
 output_textbox=gr.outputs.Textbox()
 
@@ -106,7 +107,7 @@ def greeting_response(greeting):
             return random.choice(outputs)
 
 start1 = True
-print(f"Question me on {title} ")
+# print(f"Question me on {title} ")
 while start == True:
     human = input()
     human = human.lower()
@@ -124,4 +125,4 @@ while start == True:
                 # This removes user input from the list of sentences
     else:
         start = False
-        print("F-15 Bot wishes you a All The Best")
+        print("Sure! If you have any more questions in the future, feel free to ask. Have a great day! Goodbye!")
