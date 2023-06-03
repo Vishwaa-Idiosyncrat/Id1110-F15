@@ -7,7 +7,9 @@ import urllib.request
 import re
 
 
-
+import nltk
+import numpy as np
+    title = soup.find(class_="firstHeading").text
 
     print(f"{title} \nDo you want to question me in it? (Y/N)")
     ans = input("").lower()
