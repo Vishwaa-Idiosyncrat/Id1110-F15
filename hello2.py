@@ -110,8 +110,6 @@ while start == True:
                 print(generate_response(human))
                 sen.remove(human)
                 # This removes user input from the list of sentences
-    else:
-        start = False
-        print("F-15 Bot wishes you a All The Best")
+   
 
 
