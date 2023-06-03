@@ -21,8 +21,6 @@ import numpy as np
         continue
 
 
-data = bs.BeautifulSoup(get_link, 'lxml')
-data_paragraphs = data.find_all('p')
 
 data_text = ''
 for para in data_paragraphs:
