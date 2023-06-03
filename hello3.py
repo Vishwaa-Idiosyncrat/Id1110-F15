@@ -8,10 +8,7 @@ import re
 
 
 
-while True:
-    get_link = urllib.request.urlopen("https://en.wikipedia.org/wiki/Special:Random")
-    soup = bs.BeautifulSoup(get_link, "html.parser")
-    title = soup.find(class_="firstHeading").text
+
     print(f"{title} \nDo you want to question me in it? (Y/N)")
     ans = input("").lower()
     if ans == "y":
