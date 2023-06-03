@@ -5,7 +5,7 @@ import string
 import bs4 as bs
 import urllib.request
 import re
-get_link = urllib.request.urlopen('https://en.wikipedia.org/wiki/Data_science')
+get_link = urllib.request.urlopen('https://en.wikipedia.org/wiki/Science')
 get_link = get_link.read()
 
 data = bs.BeautifulSoup(get_link, 'lxml')
