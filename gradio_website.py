@@ -94,14 +94,14 @@ def generate_response(user_input):
         bot_response = bot_response + sen[similar_sentence_numbers]
         return bot_response
 
-def process_text(user_input):
+def process_text():
     user_input=input_textbox.read()
     bot_response=get_generate_response(user_input)
     output_text = bot_response
     if greeting_response(human) != None:
         print("F-15 Bot: " + greeting_response(human))
 
-    return bot_response
+    return  output_text
 
 interface=gr.Interface(fn=process_text,inputs=input_textbox,outputs=output_textbox,title="F-15 assistant")
 
