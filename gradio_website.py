@@ -1,5 +1,5 @@
 import nltk
-import numpy as np
+import numpy 
 import random
 import string
 import bs4 as bs
