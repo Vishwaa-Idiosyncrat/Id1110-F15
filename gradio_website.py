@@ -98,7 +98,7 @@ def process_text(user_input):
     if greeting_response(human) != None:
         print("F-15 Bot: " + greeting_response(human))
 
-    return output_text
+    return bot_response
 input_textbox=gr.inputs.Textbox()
 
 output_textbox=gr.outputs.Textbox()
