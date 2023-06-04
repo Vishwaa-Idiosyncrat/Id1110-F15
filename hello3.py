@@ -7,11 +7,10 @@ import urllib.request
 import re
 
 
-
-while True:
-    get_link = urllib.request.urlopen("https://en.wikipedia.org/wiki/Special:Random")
-    soup = bs.BeautifulSoup(get_link, "html.parser")
+import nltk
+import numpy as np
     title = soup.find(class_="firstHeading").text
+
     print(f"{title} \nDo you want to question me in it? (Y/N)")
     ans = input("").lower()
     if ans == "y":
@@ -21,9 +20,9 @@ while True:
         print("Try again!")
         continue
 
-
 data = bs.BeautifulSoup(get_link, 'lxml')
 data_paragraphs = data.find_all('p')
+
 
 data_text = ''
 for para in data_paragraphs:

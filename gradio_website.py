@@ -9,7 +9,9 @@ import gradio as gr
 # List of possible inputs and corresponding outputs for greetings
 inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup","how do you do?")
 outputs = ["hey","Good Morning"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
+input_textbox=gr.inputs.Textbox(lines=2,lable="user_input")
 
+output_textbox=gr.outputs.Textbox(lines=1,lable="user_output")
 
 
 start = True
@@ -85,7 +87,7 @@ def generate_response(user_input):
     if vector_matched == 0.0:
         # Append the "I am sorry I did not understand" message to the bot response
         bot_response = bot_response +"I am sorry I did not understand"
-        return bot_response
+        return 
     
     # If there is a meaningful match
     else:
@@ -93,15 +95,14 @@ def generate_response(user_input):
         return bot_response
 
 def process_text(user_input):
-    bot_response=generate_response(user_input)
-    output_text = bot_response
+    user_input=input_textbox.read("r")
+    output_textbox ="F-15:"+ generate_response(user_input)
+  
     if greeting_response(human) != None:
-        print("F-15 Bot: " + greeting_response(human))
+        return "F-15 Bot: " + greeting_response(user_input)
 
-    return output_text
-input_textbox=gr.inputs.Textbox()
+    return  output_text
 
-output_textbox=gr.outputs.Textbox()
 interface=gr.Interface(fn=process_text,inputs=input_textbox,outputs=output_textbox,title="F-15 assistant")
 
 interface.launch(share=True)

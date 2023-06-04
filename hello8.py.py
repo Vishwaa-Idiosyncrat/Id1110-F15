@@ -161,7 +161,6 @@ def main():
         else:
             display_response("F-15 Bot wishes you all the best")
             window.after(2000, window.destroy)  # Close the window after 2 seconds
-
 if __name__ == "__main__":
     import threading
 
@@ -169,5 +168,6 @@ if __name__ == "__main__":
     t.start()
 
 main()
+
 
 
