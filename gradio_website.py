@@ -96,8 +96,8 @@ def generate_response(user_input):
 
 def process_text():
     user_input=input_textbox.read("r")
-    bot_response=get_generate_response(user_input)
-    output_text = bot_response
+   get_generate_response(user_input)
+    output_text =
     if greeting_response(human) != None:
         print("F-15 Bot: " + greeting_response(human))
 
