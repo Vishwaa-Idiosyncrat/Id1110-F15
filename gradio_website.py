@@ -9,7 +9,9 @@ import gradio as gr
 # List of possible inputs and corresponding outputs for greetings
 inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup","how do you do?")
 outputs = ["hey","Good Morning"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
+input_textbox=gr.inputs.Textbox()
 
+output_textbox=gr.outputs.Textbox()
 
 
 start = True
@@ -99,9 +101,7 @@ def process_text(user_input):
         print("F-15 Bot: " + greeting_response(human))
 
     return bot_response
-input_textbox=gr.inputs.Textbox()
 
-output_textbox=gr.outputs.Textbox()
 interface=gr.Interface(fn=process_text,inputs=input_textbox,outputs=output_textbox,title="F-15 assistant")
 
 interface.launch(share=True)
