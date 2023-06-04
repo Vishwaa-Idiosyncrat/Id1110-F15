@@ -165,11 +165,15 @@ def generate_response(user_input):
         bot_response = bot_response + sen[similar_sentence_numbers]
         return bot_response
 
-#Function to greet the user from pre defined list of greetings
+# Function to greet the user from pre defined list of greetings
+
+
 def greeting_response(greeting):
     for token in greeting.split():
         if token.lower() in inputs:
-            #If user's input is in the predefined list of greeting inputs the bot returns random greetings from the list of predefined oututs
+            #If user's input is in the predefined list of greeting
+            # inputs the bot returns random greetings from the
+            # list of predefined oututs
             return random.choice(outputs)
         
 start1 = True
