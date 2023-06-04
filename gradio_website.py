@@ -94,12 +94,12 @@ def generate_response(user_input):
         bot_response = bot_response + sen[similar_sentence_numbers]
         return bot_response
 
-def process_text():
+def process_text(user_input):
     user_input=input_textbox.read("r")
-    output_text ="F-15:"+ generate_response(user_input)
+    output_textbox ="F-15:"+ generate_response(user_input)
   
     if greeting_response(human) != None:
-        print("F-15 Bot: " + greeting_response(human))
+        return "F-15 Bot: " + greeting_response(user_input)
 
     return  output_text
 
