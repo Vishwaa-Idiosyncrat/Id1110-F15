@@ -171,11 +171,12 @@ def generate_response(user_input):
 def greeting_response(greeting):
     for token in greeting.split():
         if token.lower() in inputs:
-            #If user's input is in the predefined list of greeting
+            # If user's input is in the predefined list of greeting
             # inputs the bot returns random greetings from the
             # list of predefined oututs
             return random.choice(outputs)
-        
+
+
 start1 = True
 
 # Displays the following sentence after the wikipedia article has been chosen
