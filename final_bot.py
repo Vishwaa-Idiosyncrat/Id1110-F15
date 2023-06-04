@@ -6,13 +6,26 @@ import string
 import bs4 as bs
 import urllib.request
 import re
+# Import the TfidfVectorizer class from scikit-learn for text
+# feature extraction
+
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+# Import the cosine_similarity function from scikit-learn for
+# calculating cosine similarity
+
+
+from sklearn.metrics.pairwise import cosine_similarity
 
 # Function to display the bot's response in the chat window
+
+
 def display_response(response):
     # Insert the bot's response at the end of the text in the textbox widget
     textbox.insert(tk.END, "F-15 Bot: " + response + "\n")
     # Scroll the textbox widget to the end, making the latest message visible
     textbox.see(tk.END)
+
 
 def change_theme():
     # Toggle between dark and light mode
@@ -24,6 +37,7 @@ def change_theme():
     else:
         # Switch to the 'clam' theme
         window.tk.call("ttk::style", "theme", "clam")
+
 
 # Create a Tkinter window
 window = tk.Tk()
@@ -52,8 +66,11 @@ entry.pack(pady=10)
 
 
 # List of possible inputs and corresponding outputs for greetings
-inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup","how do you do?")
-outputs = ["hey","Good Morning"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
+inputs = ("hey", "hello", "good morning", "good afternoon", "good evening",
+          "morning", "evening", "afternoon", "hi", "whatsup", "how do you do?")
+outputs = ["hey", "Good Morning", " It’s nice to meet you",
+           "Pleased to meet you", " How have you been?", " How do you do?",
+           "Hey", "Hi", " How’s it going?"]
 
 
 start = True
@@ -62,7 +79,8 @@ start = True
 get_link = urllib.request.urlopen("https://en.wikipedia.org/wiki/Special:Random")
 get_link = get_link.read()
 soup = bs.BeautifulSoup(get_link, "html.parser")
-    # This soup object represents the parsed HTML content of the random Wikipedia article obtained from the URL.
+# This soup object represents the parsed HTML content of the random
+# Wikipedia article obtained from the URL.
 title = soup.find(class_="firstHeading").text
 display_response("Hello, F-15")
 display_response(f"Wikipedia Article is on {title}")
@@ -71,17 +89,20 @@ display_response(f"Wikipedia Article is on {title}")
 data = bs.BeautifulSoup(get_link, 'lxml')
 data_paragraphs = data.find_all('p')
 
-# Creating a empty string named data_text and adding each paragraphs from data_paragraphs to it.
+# Creating a empty string named data_text and adding each paragraphs
+# from data_paragraphs to it.
 data_text = ''
 for para in data_paragraphs:
     data_text += para.text
 
 data_text = data_text.lower()
 
-# Remove patterns enclosed in square brackets followed by digits and replace with a space
-data_text = re.sub(r'\[[0-9]*\]', ' ',data_text)
-# Remove extra whitespace by substituting multiple consecutive whitespace characters with a single space
-data_text = re.sub(r'\s+',' ',data_text)
+# Remove patterns enclosed in square brackets followed by digits
+# and replace with a space
+data_text = re.sub(r'\[[0-9]*\]', ' ', data_text)
+# Remove extra whitespace by substituting multiple consecutive
+# whitespace characters with a single space
+data_text = re.sub(r'\s+', ' ', data_text)
 
 # Tokenize the text into sentences
 sen = nltk.sent_tokenize(data_text)
@@ -91,30 +112,35 @@ words = nltk.word_tokenize(data_text)
 # Create an instance of WordNetLemmatizer for lemmatization
 wnlem = nltk.stem.WordNetLemmatizer()
 # Define a function for lemmatization
+
+
 def lemmatization(tokenized):
     # Lemmatize each token using the WordNetLemmatizer instance
     return [wnlem.lemmatize(token) for token in tokenized]
 
 # Create a translation table to remove punctuation marks
-pr = dict((ord(punctuation),None) for punctuation in string.punctuation)
+
+
+pr = dict((ord(punctuation), None) for punctuation in string.punctuation)
 # Define a function for processing text
+
+
 def processed_text(document):
-    # Convert the document to lowercase, remove punctuation, tokenize, and lemmatize
+    # Convert the document to lowercase, remove punctuation, tokenize,
+    # and lemmatize
     return lemmatization(nltk.word_tokenize(document.lower().translate(pr)))
 
-# Import the TfidfVectorizer class from scikit-learn for text feature extraction       
-from sklearn.feature_extraction.text import TfidfVectorizer
-# Import the cosine_similarity function from scikit-learn for calculating cosine similarity
-from sklearn.metrics.pairwise import cosine_similarity
 
 def generate_response(user_input):
     bot_response = ''
     # Add user input to the list of sentences
     sen.append(user_input)
     # Create word vectors using TF-IDF vectorization
-    word_vectorizer = TfidfVectorizer(tokenizer=processed_text, stop_words='english')
+    word_vectorizer = TfidfVectorizer(tokenizer=processed_text,
+                                      stop_words='english')
     word_vectors = word_vectorizer.fit_transform(sen)
-    # Calculate cosine similarity between the user input vector and all other vectors
+    # Calculate cosine similarity between the
+    # user input vector and all other vectors
     similar_vector_values = cosine_similarity(word_vectors[-1],word_vectors)
     # Get the index of the most similar sentence
     similar_sentence_numbers = similar_vector_values.argsort()[0][-2]
