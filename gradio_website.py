@@ -14,7 +14,7 @@ input_textbox=gr.inputs.Textbox()
 output_textbox=gr.outputs.Textbox()
 
 
-
+start = True
 print("Hello F-15, I am your personal assistant")
 # Get a random Wikipedia article
 get_link = urllib.request.urlopen("https://en.wikipedia.org/wiki/Special:Random")
