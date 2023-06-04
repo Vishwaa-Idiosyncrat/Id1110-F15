@@ -195,14 +195,17 @@ def display_response(response):
 def give_command():
     # Get user input from the entry field
     user_input = entry.get().lower()
-    # Once the Command button is clicked the input is cleared from the input box
+    # Once the Command button is clicked the input is
+    # cleared from the input box
     entry.delete(0, tk.END)
 
     # Displays the end response message
     if user_input != 'bye':
         if user_input == 'thanks' or user_input == 'thank you':
             display_response("Most welcome from our team")
-            # If the end response is not as mentioned above it is either greeting response or it is treated as generate response
+            # If the end response is not as mentioned above
+            # it is either greeting response or it is
+            # treated as generate response
         else:
             greeting = greeting_response(user_input)
             if greeting:
@@ -214,13 +217,13 @@ def give_command():
     else:
         display_response("F-15 Bot wishes you all the best")
         # Close the window after 2 seconds
-        window.after(2000, window.destroy)  
+        window.after(2000, window.destroy)
 
 # Create a button for sending the message
+
+
 command_button = tk.Button(window, text="Command", command=give_command)
 command_button.pack(pady=10)
 
 # Start the Tkinter event loop
 window.mainloop()
-
-
