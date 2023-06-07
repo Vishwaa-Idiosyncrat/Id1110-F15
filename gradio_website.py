@@ -93,7 +93,12 @@ def generate_response(user_input):
     else:
         bot_response = bot_response + sen[similar_sentence_numbers]
         return bot_response
-
+    
+def greeting_response(greeting):
+    for token in greeting.split():
+        if token.lower() in inputs:
+            return random.choice(outputs)
+    
 def process_text(user_input):
     user_input=input_textbox.read("r")
     output_textbox.read ="F-15:"+ generate_response(user_input)
@@ -107,10 +112,7 @@ interface=gr.Interface(fn=process_text,inputs=input_textbox,outputs=output_textb
 
 interface.launch(share=True)
 
-def greeting_response(greeting):
-    for token in greeting.split():
-        if token.lower() in inputs:
-            return random.choice(outputs)
+
 
 # start1=True
 # print(f"Question me on {title} ")
