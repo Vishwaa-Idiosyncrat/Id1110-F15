@@ -100,13 +100,13 @@ def greeting_response(greeting):
             return random.choice(outputs)
     
 def process_text(user_input):
-    user_input=input_textbox.read("r")
-    output_text.read ="F-15:"+ generate_response(user_input)
+    user_input=input_textbox.read()
+    
   
     if greeting_response(human) != None:
         return "F-15 Bot: " + greeting_response(user_input)
 
-    return  output_text
+    return  "F-15:"+ generate_response(user_input)
 
 interface=gr.Interface(fn=process_text,inputs=input_textbox,outputs=output_textbox,title="F-15 assistant")
 
