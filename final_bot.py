@@ -79,23 +79,7 @@ start = True
 get_link = urllib.request.urlopen("https://en.wikipedia.org/wiki/Special:Random")
 get_link = get_link.read()
 soup = bs.BeautifulSoup(get_link, "html.parser")
-# This soup object represents the parsed HTML content of the random
-# Wikipedia article obtained from the URL.
-title = soup.find(class_="firstHeading").text
-display_response("Hello, F-15")
-display_response(f"Wikipedia Article is on {title}")
 
-# Seperating the whole content from data to individual paragraphs.
-data = bs.BeautifulSoup(get_link, 'lxml')
-data_paragraphs = data.find_all('p')
-
-# Creating a empty string named data_text and adding each paragraphs
-# from data_paragraphs to it.
-data_text = ''
-for para in data_paragraphs:
-    data_text += para.text
-
-data_text = data_text.lower()
 
 # Remove patterns enclosed in square brackets followed by digits
 # and replace with a space
