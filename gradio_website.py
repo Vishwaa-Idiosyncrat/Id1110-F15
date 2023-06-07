@@ -106,7 +106,7 @@ def process_text(user_input):
     if greeting_response(human) != None:
         return "F-15 Bot: " + greeting_response(user_input)
 
-    return  output_text
+    return  output_textbox.read
 
 interface=gr.Interface(fn=process_text,inputs=input_textbox,outputs=output_textbox,title="F-15 assistant")
 
