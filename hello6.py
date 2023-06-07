@@ -96,6 +96,23 @@ def greeting_response(greeting):
         if token.lower() in inputs:
             return random.choice(outputs)
 
+start1 = True
+print(f"Question me on {title} ")
+while start == True:
+    human = input()
+    human = human.lower()
+    if human != 'bye':
+        if human == 'thanks' or human == 'thank you':
+            start = False
+            print("Most welcome from our team")
+        else:
+            if greeting_response(human) != None:
+                print("F-15 Bot: "+ greeting_response(human))
+            else:
+                print("F-15 Bot: ",end ='')
+                print(generate_response(human))
+                sen.remove(human)
+                # This removes user input from the list of sentences
     else:
         start = False
         print("F-15 Bot wishes you a All The Best")
