@@ -100,7 +100,7 @@ def greeting_response(greeting):
             return random.choice(outputs)
     
 def process_text(user_input):
-    user_input=input_textbox.read("r")
+    user_input.read=input_textbox
     output_textbox.read ="F-15:"+ generate_response(user_input)
   
     if greeting_response(human) != None:
