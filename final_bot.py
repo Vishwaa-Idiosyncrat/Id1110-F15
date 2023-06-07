@@ -73,12 +73,6 @@ outputs = ["hey", "Good Morning", " It’s nice to meet you",
            "Hey", "Hi", " How’s it going?"]
 
 
-start = True
-
-# Get a random Wikipedia article
-get_link = urllib.request.urlopen("https://en.wikipedia.org/wiki/Special:Random")
-get_link = get_link.read()
-soup = bs.BeautifulSoup(get_link, "html.parser")
 # This soup object represents the parsed HTML content of the random
 # Wikipedia article obtained from the URL.
 title = soup.find(class_="firstHeading").text
