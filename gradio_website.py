@@ -96,11 +96,11 @@ def greeting_response(greeting):
     for token in greeting.split():
         if token.lower() in inputs:
             return random.choice(outputs)
-    
+human=input()    
 def process_text(user_input):
     
     
-  
+    global human
     if greeting_response(human) is not None:
         return "F-15 Bot: " + greeting_response(user_input)
 
@@ -117,7 +117,7 @@ interface.launch(share=True)
 # start1=True
 # print(f"Question me on {title} ")
 while start == True:
-    human = input()
+#     human = input()
     human = human.lower()
     if human != 'bye':
         if human == 'thanks' or human == 'thank you':
