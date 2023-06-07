@@ -9,9 +9,9 @@ import gradio as gr
 # List of possible inputs and corresponding outputs for greetings
 inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup","how do you do?")
 outputs = ["hey","Good Morning"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
-input_textbox=gr.inputs.Textbox(label="user_input")
+input_textbox=gr.inputs.Textbox(lines=2,label="user_input")
 
-output_textbox=gr.outputs.Textbox(label="user_output")
+output_textbox=gr.outputs.Textbox(lines=1,label="user_output")
 
 
 start = True
@@ -87,7 +87,7 @@ def generate_response(user_input):
     if vector_matched == 0.0:
         # Append the "I am sorry I did not understand" message to the bot response
         bot_response = bot_response +"I am sorry I did not understand"
-        return 
+        return bot_response
     
     # If there is a meaningful match
     else:
@@ -100,7 +100,7 @@ def greeting_response(greeting):
             return random.choice(outputs)
     
 def process_text(user_input):
-    user_input.read=input_textbox
+    user_input=input_textbox.read("r")
     output_textbox.read ="F-15:"+ generate_response(user_input)
   
     if greeting_response(human) != None:
