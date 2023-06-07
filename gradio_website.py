@@ -85,6 +85,7 @@ def generate_response(user_input):
     if vector_matched == 0.0:
         # Append the "I am sorry I did not understand" message to the bot response
         bot_response = bot_response +"I am sorry I did not understand"
+        
         return bot_response
     
     # If there is a meaningful match
@@ -96,15 +97,10 @@ def greeting_response(greeting):
     for token in greeting.split():
         if token.lower() in inputs:
             return random.choice(outputs)
-human=input()    
+   
 def process_text(user_input):
-    
-    
-    global human
-    if greeting_response(human) is not None:
-        return "F-15 Bot: " + greeting_response(user_input)
+    return  "F-15 Bot:"+ greeting_response(user_input) + generate_response(user_input)
 
-    return  "F-15 Bot:"+ generate_response(user_input)
 input_textbox.read=gr.inputs.Textbox(label="user_input")
 
 output_textbox=gr.outputs.Textbox(label="user_output")
