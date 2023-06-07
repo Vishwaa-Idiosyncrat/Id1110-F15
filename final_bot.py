@@ -97,7 +97,21 @@ for para in data_paragraphs:
 
 data_text = data_text.lower()
 
+# Remove patterns enclosed in square brackets followed by digits
+# and replace with a space
+data_text = re.sub(r'\[[0-9]*\]', ' ', data_text)
+# Remove extra whitespace by substituting multiple consecutive
+# whitespace characters with a single space
+data_text = re.sub(r'\s+', ' ', data_text)
 
+# Tokenize the text into sentences
+sen = nltk.sent_tokenize(data_text)
+# Tokenize the text into words
+words = nltk.word_tokenize(data_text)
+
+# Create an instance of WordNetLemmatizer for lemmatization
+wnlem = nltk.stem.WordNetLemmatizer()
+# Define a function for lemmatization
 
 
 def lemmatization(tokenized):
