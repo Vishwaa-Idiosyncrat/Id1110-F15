@@ -1,4 +1,10 @@
-
+import nltk
+import numpy as np
+import random
+import string
+import bs4 as bs
+import urllib.request
+import re
 
 # List of possible inputs and corresponding outputs for greetings
 inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup","how do you do?")
