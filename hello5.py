@@ -79,25 +79,4 @@ def generate_response(user_input):
         bot_response = bot_response + sen[similar_sentence_numbers]
         return bot_response
     
-start=True
-print(f"Question me about {title} ")
-while start == True:
-    human = input()
-    human = human.lower()
-    if human != 'bye':
-        if human == 'thanks' or human == 'thank you':
-            start = False
-            print("You're welcome! From the F-15 team")
-        else:
-            if greeting_response(human) != None:
-                print("F-15 Bot: "+ greeting_response(human))
-            else:
-                bot_response = generate_response(human)
-                if bot_response == human:
-                    print("F-15 Bot: I am sorry, I did not understand")
-                else:
-                    print("F-15 Bot: " + bot_response)
-                    sen.remove(human)
-    else:
-        start = False
-        print("F-15 Bot wishes you all the best")
+
