@@ -113,7 +113,7 @@ interface.launch(share=True)
 # start1=True
 # print(f"Question me on {title} ")
 while start == True:
-#     human = input()
+    human = input()
     human = human.lower()
     if human != 'bye':
         if human == 'thanks' or human == 'thank you':
