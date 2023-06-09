@@ -11,36 +11,47 @@ The group members of F15 are:
     Gaurav Nagar (102201026)
 
 Overview:
-WikiBot is a simple chat bot created by us. It starts in a GUI interface using Tkinter library
-and it generates a random Wikipedia article and learns about it. Then the bot displays the topic of
-the Wikipedia article, and it splits the article to paragraphs and then it to sentences and words
-and then lemmatizes these words. It has predefined greeting outputs for predefined greeting
-inputs given by us. WikiBot uses natural language processing techniques to understand and
-respond to user inputs. The bot then understands the human questions, takes the key words in the
-input, and matches it with the database it has and then it returns the best matching answer to the
-question from the database it has stored for the article.
+
+    WikiBot is a simple chat bot created by us. It starts in a GUI interface using Tkinter library
+    and it generates a random Wikipedia article and learns about it. Then the bot displays the topic of
+    the Wikipedia article, and it splits the article to paragraphs and then it to sentences and words
+    and then lemmatizes these words. It has predefined greeting outputs for predefined greeting
+    inputs given by us. WikiBot uses natural language processing techniques to understand and
+    respond to user inputs. The bot then understands the human questions, takes the key words in the
+    input, and matches it with the database it has and then it returns the best matching answer to the
+    question from the database it has stored for the article.
 
 Modules and Libraries:
-Tkinter: Tkinter is a Python module that enables the creation of graphical user interfaces
-(GUIs)
-NLTK : The NLTK (Natural Language Toolkit) module is a Python library for working
-with human language data, providing various tools and resources for tasks like tokenization,
-stemming, tagging, parsing, and more.
-Urllib.request: The `urllib.request` module allows for making HTTP requests and
-interacting with web resources in Python.
-Numpy: NumPy is a Python library for numerical computing that provides efficient
-multidimensional array operations.
-Random: The random module in Python provides functions for generating
-pseudo-random numbers and selecting random elements from a collection.
-String: The string module in Python provides various functions and methods for
-manipulating and working with strings.
-BeautifulSoup: BeautifulSoup is a Python library for parsing HTML and XML
-documents, making it easy to extract and manipulate data from web pages with minimal coding.
-re: The `re` module is a Python library used for pattern matching and manipulation of
-strings.
-Scikit-Learn: scikit-learn (sklearn) is a popular machine learning library in Python that
-provides a wide range of tools and algorithms for data preprocessing, feature selection, model
-training, and evaluation.
+
+    Tkinter:
+        Tkinter is a Python module that enables the creation of graphical user interfaces
+        (GUIs)
+    NLTK : 
+        The NLTK (Natural Language Toolkit) module is a Python library for working
+        with human language data, providing various tools and resources for tasks like tokenization,
+        stemming, tagging, parsing, and more.
+    Urllib.request: 
+        The `urllib.request` module allows for making HTTP requests and
+        interacting with web resources in Python.
+    Numpy:
+        NumPy is a Python library for numerical computing that provides efficient
+        multidimensional array operations.
+    Random:
+        The random module in Python provides functions for generating
+        pseudo-random numbers and selecting random elements from a collection.
+    String: 
+        The string module in Python provides various functions and methods for
+        manipulating and working with strings.
+    BeautifulSoup:
+        BeautifulSoup is a Python library for parsing HTML and XML
+        documents, making it easy to extract and manipulate data from web pages with minimal coding.
+    re: 
+        The `re` module is a Python library used for pattern matching and manipulation of
+        strings.
+    Scikit-Learn:
+        scikit-learn (sklearn) is a popular machine learning library in Python that
+        provides a wide range of tools and algorithms for data preprocessing, feature selection, model
+        training, and evaluation.
 
 Team Members and Contributions:
 
@@ -65,7 +76,8 @@ Team Members and Contributions:
 
 
 Refrences:
-1) https://youtu.be/Je7M_K3IANI
+
+    1) https://youtu.be/Je7M_K3IANI
 2) Python Web Scraping Tutorial - GeeksforGeeks
 3) python - A Random Wikipedia Article Generator - Stack Overflow
 4) Introduction to Tkinter - GeeksforGeeks
