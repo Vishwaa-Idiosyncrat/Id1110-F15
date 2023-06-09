@@ -50,9 +50,14 @@ Team Members and Contributions:
     Kamarthi Chiruhas (122201025)
     
         Coded for random Wikipedia article generator and improved it and coded for scrapping
-        the data of the random Wikipedia article helped in making the project report and the readme file.
+    the data of the random Wikipedia article helped in making the project report and the readme file.
         
     Gaurav Nagar (102201026)
+    
+        Coded for making the GUI interface and then tried to add a color theme to it. Then tried
+    to make a temporary website for the bot using Gradio module, helped in making the project
+    report and readme file.
+
 
 
 Refrences:
