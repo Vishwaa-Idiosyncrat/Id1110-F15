@@ -44,6 +44,8 @@ Team Members and Contributions:
     database of the bot, greeting inputs and outputs for the bot, exiting of the bot, Updated the
     random Wikipedia article generator, helped in making the GUI interface and tried to add color
     theme to it.
+    
+    Kamarthi Chiruhas (122201025)
 
 
 Refrences:
