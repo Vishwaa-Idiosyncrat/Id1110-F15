@@ -40,6 +40,10 @@ training, and evaluation.
 
 Team Members and Contributions:
     Vishwaa P S (112201030)
+        Separated the scraped data to sentences and words and then lemmatized it, added it to the
+    database of the bot, greeting inputs and outputs for the bot, exiting of the bot, Updated the
+    random Wikipedia article generator, helped in making the GUI interface and tried to add color
+    theme to it.
 
 
 Refrences:
