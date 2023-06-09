@@ -78,13 +78,13 @@ Team Members and Contributions:
 Refrences:
 
     1) https://youtu.be/Je7M_K3IANI
-2) Python Web Scraping Tutorial - GeeksforGeeks
-3) python - A Random Wikipedia Article Generator - Stack Overflow
-4) Introduction to Tkinter - GeeksforGeeks
-5) NLTK :: Sample usage for stem
-6) https://www.geeksforgeeks.org/python-urllib-module/
-7) https://www.geeksforgeeks.org/python-numpy/
-8) https://realpython.com/beautiful-soup-web-scraper-python/
-9) https://www.w3schools.com/python/python_regex.asp
-10)https://scikitlearn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
-11)https://scikitlearn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html
+    2) Python Web Scraping Tutorial - GeeksforGeeks
+    3) python - A Random Wikipedia Article Generator - Stack Overflow
+    4) Introduction to Tkinter - GeeksforGeeks
+    5) NLTK :: Sample usage for stem
+    6) https://www.geeksforgeeks.org/python-urllib-module/
+    7) https://www.geeksforgeeks.org/python-numpy/
+    8) https://realpython.com/beautiful-soup-web-scraper-python/
+    9) https://www.w3schools.com/python/python_regex.asp
+    10)https://scikitlearn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
+    11)https://scikitlearn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html
