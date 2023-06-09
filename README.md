@@ -51,6 +51,8 @@ Team Members and Contributions:
     
         Coded for random Wikipedia article generator and improved it and coded for scrapping
         the data of the random Wikipedia article helped in making the project report and the readme file.
+        
+    Gaurav Nagar (102201026)
 
 
 Refrences:
