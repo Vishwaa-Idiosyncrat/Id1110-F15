@@ -114,7 +114,7 @@ def greeting_response(greeting):
 def process_text(user_input):
      if (greeting_response(user_input)) is not None:
          return "F-15 Bot:"+ " " + greeting_response(user_input) 
-    else:
+     else:
         return "F-15 Bot:"+ " " +  generate_response(user_input)
 input_textbox.read=gr.inputs.Textbox(label="user_input")
 
