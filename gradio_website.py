@@ -7,11 +7,9 @@ import urllib.request
 import re
 import gradio as gr
 # List of possible inputs and corresponding outputs for greetings
-inputs = ("hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup","how do you do?")
+inputs = ["hey","hello","good morning", "good afternoon","good evening","morning","evening","afternoon","hi", "whatsup","how do you do?"]
 outputs = ["hey","Good Morning"," It’s nice to meet you","Pleased to meet you"," How have you been?"," How do you do?","Hey","Hi"," How’s it going?"]
-input_textbox=gr.inputs.Textbox(lines=2,lable="user_input")
 
-output_textbox=gr.outputs.Textbox(lines=1,lable="user_output")
 
 
 start = True
@@ -87,7 +85,8 @@ def generate_response(user_input):
     if vector_matched == 0.0:
         # Append the "I am sorry I did not understand" message to the bot response
         bot_response = bot_response +"I am sorry I did not understand"
-        return 
+        
+        return bot_response
     
     # If there is a meaningful match
     else:
@@ -101,7 +100,7 @@ def process_text(user_input):
     if greeting_response(human) != None:
         return "F-15 Bot: " + greeting_response(user_input)
 
-    return generate_response
+    return  output_text
 
 interface=gr.Interface(fn=process_text,inputs=input_textbox,outputs=output_textbox,title="F-15 assistant")
 
@@ -111,6 +110,20 @@ def greeting_response(greeting):
     for token in greeting.split():
         if token.lower() in inputs:
             return random.choice(outputs)
+   
+def process_text(user_input):
+     if (greeting_response(user_input)) is not None:
+         return "F-15 Bot:"+ " " + greeting_response(user_input) 
+    else:
+        return "F-15 Bot:"+ " " +  generate_response(user_input)
+input_textbox.read=gr.inputs.Textbox(label="user_input")
+
+output_textbox=gr.outputs.Textbox(label="user_output")
+interface=gr.Interface(fn=process_text,inputs=input_textbox,outputs=output_textbox,title="F-15 assistant")
+
+interface.launch(share=True)
+
+
 
 # start1=True
 # print(f"Question me on {title} ")

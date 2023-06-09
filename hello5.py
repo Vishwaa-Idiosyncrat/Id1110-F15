@@ -78,8 +78,7 @@ def generate_response(user_input):
     else:
         bot_response = bot_response + sen[similar_sentence_numbers]
         return bot_response
-    
-start=True
+    start=True
 print(f"Question me about {title} ")
 while start == True:
     human = input()
@@ -101,3 +100,4 @@ while start == True:
     else:
         start = False
         print("F-15 Bot wishes you all the best")
+
