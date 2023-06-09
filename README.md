@@ -39,6 +39,8 @@ provides a wide range of tools and algorithms for data preprocessing, feature se
 training, and evaluation.
 
 Team Members and Contributions:
+    Vishwaa P S (112201030)
+
 
 Refrences:
 1) https://youtu.be/Je7M_K3IANI
