@@ -12,15 +12,29 @@ The group members of F15 are:
 
 Overview:
 
-    WikiBot is a simple chat bot created by us. It starts in a GUI interface using Tkinter library
+    GUI:
+    
+        WikiBot is a simple chat bot created by us. It starts in a GUI interface using Tkinter library
     and it generates a random Wikipedia article and learns about it. Then the bot displays the topic of
     the Wikipedia article, and it splits the article to paragraphs and then it to sentences and words
     and then lemmatizes these words. It has predefined greeting outputs for predefined greeting
     inputs given by us. WikiBot uses natural language processing techniques to understand and
     respond to user inputs. The bot then understands the human questions, takes the key words in the
     input, and matches it with the database it has and then it returns the best matching answer to the
-    question from the database it has stored for the article.
-
+    question from the database it has stored for the article. The GUI closes when you "bye" as an input.
+    
+    Gradio Website:
+    
+        The F-15 bot will also work in website. It starts in terminal and it generates a random Wikipedia article 
+    and learns about it. Then the bot displays the topic of
+    the Wikipedia article, and it splits the article to paragraphs and then it to sentences and words
+    and then lemmatizes these words. It has predefined greeting outputs for predefined greeting
+    inputs given by us. WikiBot uses natural language processing techniques to understand and
+    respond to user inputs. The bot then understands the human questions, takes the key words in the
+    input, and matches it with the database it has and then it returns the best matching answer to the
+    question from the database it has stored for the article. It has two columns one for user input and the other
+    for the response of the bot.
+    
 Modules and Libraries:
 
     Tkinter:
