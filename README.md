@@ -48,6 +48,9 @@ Team Members and Contributions:
     theme to it.
     
     Kamarthi Chiruhas (122201025)
+    
+        Coded for random Wikipedia article generator and improved it and coded for scrapping
+        the data of the random Wikipedia article helped in making the project report and the readme file.
 
 
 Refrences:
