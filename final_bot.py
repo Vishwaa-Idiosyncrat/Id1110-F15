@@ -118,7 +118,7 @@ def lemmatization(tokenized):
     # Lemmatize each token using the WordNetLemmatizer instance
     return [wnlem.lemmatize(token) for token in tokenized]
 
-# Create a translation table to remove punctuation marks
+# Create  a translation table to remove punctuation marks
 
 
 pr = dict((ord(punctuation), None) for punctuation in string.punctuation)
